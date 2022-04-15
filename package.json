@@ -1,0 +1,24 @@
+{
+  "name": "express_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ravshan01/express_test.git",
+  "author": "Ravshan Selimov <51333533+ravshan01@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "yarn nodemon --exec babel-node index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2"
+  }
+}
