@@ -1,5 +1,5 @@
 // почему-то не работает
-// import { useSequelize } from '../../hooks'
+// import { useSequelize } from '../../hooks/index.js'
 import useSequelize from '../../hooks/useSequelize.js'
 import { DataTypes, Model } from 'sequelize'
 
@@ -14,13 +14,13 @@ File.init(
     name: DataTypes.STRING,
     path: DataTypes.STRING,
     file_name: DataTypes.STRING,
-    file_type: DataTypes.STRING,
-    file_size: DataTypes.BIGINT,
+    file_size: DataTypes.INTEGER,
+    content_type: DataTypes.STRING,
   },
   {
     sequelize: useSequelize(),
     modelName: 'File',
-    timestamps: true,
+    timestamps: false,
   }
 )
 
