@@ -13,8 +13,7 @@ File.init(
     },
     name: DataTypes.STRING,
     path: DataTypes.STRING,
-    file_name: DataTypes.STRING,
-    file_size: DataTypes.INTEGER,
+    size: DataTypes.INTEGER,
     content_type: DataTypes.STRING,
   },
   {
