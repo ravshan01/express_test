@@ -12,7 +12,6 @@
     "migrate": "node ./src/migrations.js"
   },
   "dependencies": {
-    "body-parser": "^1.20.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mariadb": "^3.0.0",
