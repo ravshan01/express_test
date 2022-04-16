@@ -2,7 +2,8 @@ import { config } from 'dotenv'
 config()
 
 import express from 'express'
-import bodyParser from 'body-parser'
+// import bodyParser from 'body-parser'
+import { useRouter } from './hooks'
 
 // -------------------------------------------
 const app = express()
@@ -10,14 +11,8 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
-app.use(bodyParser.json())
 
-// Create a catch-all route for testing the installation.
-app.get('*', (req, res) =>
-  res.status(200).send({
-    message: 'Hello World!',
-  })
-)
+useRouter(app)
 
 app.listen(process.env.PORT, () => {
   console.log('App is now running at port ', process.env.PORT)
