@@ -7,9 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "yarn babel src -d dist",
-    "dev": "yarn nodemon --exec babel-node src/index.js",
+    "start": "node src/index.js",
+    "dev": "yarn nodemon",
     "migrate": "node ./src/migrations.js"
   },
   "dependencies": {
