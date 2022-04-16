@@ -1,7 +1,8 @@
 import fs from 'fs'
-import FilesService from './Service'
-import SuccessResponse from '../../utils/SuccessResponse'
-import ErrorResponse from '../../utils/ErrorResponse'
+import FilesService from './Service.js'
+import SuccessResponse from '../../utils/SuccessResponse.js'
+import ErrorResponse from '../../utils/ErrorResponse.js'
+import { Model as File } from './index.js'
 
 export default {
   async getFile(req, res) {

@@ -1,6 +1,6 @@
 // почему-то не работает
 // import { useSequelize } from '../../hooks'
-import useSequelize from '../../hooks/useSequelize'
+import useSequelize from '../../hooks/useSequelize.js'
 import { DataTypes, Model } from 'sequelize'
 
 class File extends Model {}

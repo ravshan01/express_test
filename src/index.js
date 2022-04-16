@@ -2,7 +2,7 @@ import { config } from 'dotenv'
 config()
 
 import express from 'express'
-import { useRouter } from './hooks'
+import { useRouter } from './hooks/index.js'
 
 // -------------------------------------------
 const app = express()

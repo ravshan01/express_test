@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { Controller } from './index'
+import { Controller } from './index.js'
 
 const router = Router()
 router.get('/:name', Controller.getFile)

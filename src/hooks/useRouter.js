@@ -1,4 +1,4 @@
-import { router as files } from '../Modules/Files'
+import { router as files } from '../Modules/Files/index.js'
 
 export default function useRouter(app) {
   app.use((req, res, next) => {
