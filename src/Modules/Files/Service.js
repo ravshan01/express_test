@@ -7,13 +7,21 @@ export default {
       where: { name: fileName },
     })
   },
+  async getFileBuffer(file) {
+    return await fs.readFileSync(file.path)
+  },
+
+  async create(file) {
+    return await File.create(file)
+  },
 
   async createOrEdit(req, buffers) {
-    const buffer = Buffer.concat(buffers).toString()
-
     const name = req.params.name
     const type = req.headers['content-type']
+
+    // пока так, надо будет вычислять правильное расширение из content-type
     const extension = type.split('/')[1]
+
     const fileSize = req.headers['content-length']
     const path = `./static/${name}.${extension}`
 
@@ -27,7 +35,7 @@ export default {
       file.save()
     }
     if (!file) {
-      file = await this.createFile({
+      file = await this.create({
         name: name,
         path,
         content_type: type,
@@ -35,11 +43,7 @@ export default {
       })
     }
 
-    fs.writeFileSync(path, buffer, 'binary', err => console.log(err))
+    fs.writeFileSync(path, Buffer.concat(buffers), 'binary', err => console.log(err))
     return file
-  },
-
-  async createFile(file) {
-    return await File.create(file)
   },
 }
