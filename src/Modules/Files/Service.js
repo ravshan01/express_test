@@ -14,17 +14,25 @@ export default {
     const type = req.headers['content-type']
     const fileSize = req.headers['content-length']
 
-    const file =
-      (await this.getOneByName(name)) ||
-      (await this.createFile({
+    let file = await this.getOneByName(name)
+
+    // TODO: обновление модели вынести в отдельный метод
+    if (file) {
+      file.path = path
+      file.type = type
+      file.fileSize = fileSize
+      file.save()
+    }
+    if (!file) {
+      file = await this.createFile({
         name: name,
         path,
         content_type: type,
         size: fileSize,
-      }))
+      })
+    }
 
     fs.writeFileSync(path, req.rawBody, 'binary', err => console.log(err))
-
     return file
   },
 
