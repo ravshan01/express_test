@@ -8,11 +8,14 @@ export default {
     })
   },
 
-  async createOrEdit(req) {
+  async createOrEdit(req, buffers) {
+    const buffer = Buffer.concat(buffers).toString()
+
     const name = req.params.name
-    const path = `./static/${name}`
     const type = req.headers['content-type']
+    const extension = type.split('/')[1]
     const fileSize = req.headers['content-length']
+    const path = `./static/${name}.${extension}`
 
     let file = await this.getOneByName(name)
 
@@ -32,7 +35,7 @@ export default {
       })
     }
 
-    fs.writeFileSync(path, req.rawBody, 'binary', err => console.log(err))
+    fs.writeFileSync(path, buffer, 'binary', err => console.log(err))
     return file
   },
 
